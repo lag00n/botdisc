@@ -9,7 +9,6 @@ import random
 
 key = os.getenv('key')
 wkey = os.getenv('wkey')
-#client = discord.Client()
 
 client = commands.Bot( # deveria trocar o nome pra bot? ao invés de client.
   command_prefix = 'mu!',
