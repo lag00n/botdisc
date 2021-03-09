@@ -45,9 +45,22 @@ async def moeda(ctx):
   await ctx.send(resultado)
 
 @client.command(name='erase', help='esse commando apaga mensagens')
-async def erase(ctx, amount = 10):
+async def erase(ctx, amount = 10 + 2):
   await ctx.send("Apagando Mensagens")
   await ctx.channel.purge(limit=amount)
+
+@client.command()
+async def warn(ctx, member: discord.Member, *, msg):
+  channel = await member.create_dm()
+  await channel.send(msg)
+
+@client.command()
+async def flood(ctx, member: discord.Member, *, msg):
+  channel = await member.create_dm()
+  await channel.send(msg)
+  while count < int(90):
+    await channel.send(msg)
+count = count + 1
 
 @client.event
 async def on_message(message):
@@ -58,7 +71,7 @@ async def on_message(message):
   if "delben" in message.content:
     await message.channel.send("delben macaco wtf :monkey:")
      
-  await client.process_commands(message)
+  await client.process_commands(message) # desbuga os outros commandos.
 
  
 hostingsetup.host()
