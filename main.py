@@ -63,6 +63,11 @@ async def flood(ctx, member: discord.Member, *, msg):
     await channel.send(msg)
 count = count + 1
 
+@client.command()
+async def embed(ctx):
+    embed=discord.Embed(title="Exemplo Embed", url="https://google.com/", description="Esse é um exemplo de embed.", color=0xFF5733)
+    await ctx.send(embed=embed)
+
 @client.event
 async def on_message(message):
 
