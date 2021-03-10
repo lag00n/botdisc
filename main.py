@@ -54,6 +54,7 @@ async def warn(ctx, member: discord.Member, *, msg):
   channel = await member.create_dm()
   await channel.send(msg)
 
+count = 0
 @client.command()
 async def flood(ctx, member: discord.Member, *, msg):
   channel = await member.create_dm()
