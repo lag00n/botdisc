@@ -26,7 +26,10 @@ async def on_ready():
 
 @client.command()
 async def iasmin(ctx):
-    await ctx.send(random.choice(things.iasmin))
+    if ctx.message.author.id == (504458442300456970):
+      await ctx.send(info.iasmin2)
+    else:
+      await ctx.send(info.iasmin)
 
 
 @client.command()
@@ -60,7 +63,7 @@ async def warn(ctx, member: discord.Member, *, msg):
     channel = await member.create_dm()
     await channel.send(msg)
 
-
+'''
 @client.command()
 async def flood(ctx, member: discord.Member, *, msg):
     count = 0
@@ -71,12 +74,17 @@ async def flood(ctx, member: discord.Member, *, msg):
         if count == 10:
             break
         count += 1
-
+'''
+@client.command()
+async def flood(ctx, member: discord.Member, msg: str, nmsg: int): 
+    channel = await member.create_dm()
+    for i in range(nmsg):
+      await channel.send(msg)
 
 @client.command()
 async def embed(ctx):
     embed = discord.Embed(title="DELBEN CLICA AQUI",
-                          url="https://xvideos.com/",
+                          url="https://google.com/",
                           description="Delben clica ali .",
                           color=0xFF5733)
     await ctx.send(embed=embed)
