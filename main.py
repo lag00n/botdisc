@@ -82,6 +82,12 @@ async def flood(ctx, member: discord.Member, msg: str, nmsg: int):
       await channel.send(msg)
 
 @client.command()
+async def roll(ctx):
+    for i in range(14):
+        ctx.send("$wa")
+
+
+@client.command()
 async def embed(ctx):
     embed = discord.Embed(title="DELBEN CLICA AQUI",
                           url="https://google.com/",
