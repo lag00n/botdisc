@@ -84,7 +84,7 @@ async def flood(ctx, member: discord.Member, msg: str, nmsg: int):
 @client.command()
 async def roll(ctx):
     for i in range(14):
-        ctx.send("$wa")
+      await ctx.send("$wa")
 
 
 @client.command()
