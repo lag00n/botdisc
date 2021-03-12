@@ -76,7 +76,7 @@ async def flood(ctx, member: discord.Member, *, msg):
         count += 1
 '''
 @client.command()
-async def flood(ctx, member: discord.Member, msg: str, nmsg: int): 
+async def flood(ctx, member: discord.Member, nmsg:int, *, msg: str ): 
     channel = await member.create_dm()
     for i in range(nmsg):
       await channel.send(msg)
@@ -104,6 +104,12 @@ async def on_message(message):
 
     if "delben" in message.content:
         await message.channel.send("delben macaco wtf :monkey:")
+
+    elif "lmao" in message.content:
+        await message.add_reaction(info.lmao)
+
+    elif "lmfao" in message.content:
+        await message.add_reaction(info.lmao)
 
     await client.process_commands(message)  # desbuga os outros commandos.
 
