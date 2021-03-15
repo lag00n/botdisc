@@ -34,11 +34,13 @@ async def iasmin(ctx):
 
 @client.command()
 async def say(ctx, *, arg: str):  ## * e arg:str permitem o não uso de aspas.
+    await ctx.channel.purge(limit=int(1))
     await ctx.send(arg)
 
 
 @client.command()
 async def revsay(ctx, *, arg: str):
+    await ctx.channel.purge(limit=int(1))
     await ctx.send(arg[::-1])
 
 
@@ -63,7 +65,7 @@ async def warn(ctx, member: discord.Member, *, msg):
     channel = await member.create_dm()
     await channel.send(msg)
 
-'''
+''' isso aqui é ruim porra.
 @client.command()
 async def flood(ctx, member: discord.Member, *, msg):
     count = 0
@@ -82,15 +84,13 @@ async def flood(ctx, member: discord.Member, nmsg:int, *, msg: str ):
       await channel.send(msg)
 
 @client.command()
-async def roll(ctx):
-    for i in range(14):
-      await ctx.send("$wa")
-
+async def loud(ctx):
+    await ctx.send(info.loud2)
 
 @client.command()
 async def embed(ctx):
     embed = discord.Embed(title="DELBEN CLICA AQUI",
-                          url="https://google.com/",
+                          url="https://xvideos.com",
                           description="Delben clica ali .",
                           color=0xFF5733)
     await ctx.send(embed=embed)
@@ -105,6 +105,7 @@ async def on_message(message):
     if "delben" in message.content:
         await message.channel.send("delben macaco wtf :monkey:")
 
+    #preciso achar um jeito de consertar isso aqui.
     elif "lmao" in message.content:
         await message.add_reaction(info.lmao)
 
